@@ -7,4 +7,8 @@ MySQL
 # Servidor
 Localhost - XAMPP - Tomcat
 
+# IDE
+
+NetBeans IDE 
+
 
