@@ -1,0 +1,192 @@
+
+
+:root{
+    --padding-table: 15px 35px;
+}
+
+#container table{
+    background: var(--clr-fondo-primario);
+    color: var(--clr-texto);
+    text-align: center;
+}
+
+#container table thead{
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+#container table thead tr th{
+    padding: var(--padding-table);
+    border: 1px solid var(--clr-texto);
+}
+
+#container table tbody tr th,
+#container table tbody tr td{
+    padding: var(--padding-table);
+    border: 1px solid var(--clr-texto);
+    background: var(--clr-fondo-terciario);
+}
+
+#container table tbody tr td .action_button{
+    padding: 5px 10px;
+    background: var(--clr-boton);
+    color: var(--clr-texto);
+    margin: 0 10px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+#container table tbody tr td .action_button:hover{
+    background: var(--clr-fondo-primario);
+    border-color: var(--clr-fondo-secundario);
+    color: var(--clr-fondo-secundario);
+}
+
+#container table tbody tr th:nth-child(obb),
+#container table tbody tr td:nth-child(obb){
+    background: #f1f1f1;
+}
+
+/* Formularios */
+
+#container .form{
+    background: var(--clr-fondo-primario);
+    width: 500px;
+    height: auto;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-content: center; 
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+#container .form .form_camp{
+    margin: 10px 0;
+}
+
+#container .form .form_camp label{
+    font-weight: 700;
+    color: var(--clr-texto);
+    margin-right: 20px;
+}
+
+#container .form .form_camp input{
+    background: none;
+    border: none;
+    border-bottom: 2px solid var(--clr-fondo-secundario);
+    line-height: 30px;
+    outline: none;
+    color: #f1f1f1;
+    font-weight: 500;
+}
+
+#container .form .form_camp select{
+    background: var(--clr-fondo-primario);
+    color: #f1f1f1;
+    font-weight: 500;
+    border: 1px solid transparent;
+    border-bottom: 2px solid var(--clr-fondo-secundario);
+}
+
+#container .button{
+   padding: 10px 15px;
+    background: var(--clr-boton);
+    color: var(--clr-texto);
+    margin: 30px 50px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 500;
+    border-radius: 20px;
+    border: 1px solid transparent;
+   box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: .3s ease-in-out; 
+}
+
+#container .button:hover{
+    transform: scale(1.1);
+    background: var(--clr-fondo-primario)
+}
+
+#container .form .button{
+    padding: 10px 15px;
+    background: var(--clr-boton);
+    color: var(--clr-texto);
+    margin: 20px 50px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 500;
+    border-radius: 20px;
+    border: 1px solid transparent;
+   box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+#container .form .button:hover{
+    background: var(--clr-fondo-primario);
+    border-color: var(--clr-fondo-secundario);
+}
+
+#container .form .button i{
+    margin-right: 8px;
+}
+
+
+/* Cambio de Estilos Main.css */
+
+#container .block_buttons{
+    width: 100%;
+    height: 100px;
+    border: none;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos de pantalla de busqueda */
+
+#container .form_search{
+    margin: 20px 0;
+}
+
+#container .form_search input[type="search"]{
+    width: 600px;
+    height: 2.5em;
+    background: var(--clr-fondo-primario);
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    color: var(--clr-fondo-secundario);
+    font-weight: 600;
+}
+
+#container .form_search button{
+   width: 50px;
+   height: 50px;
+   border: none;
+   background: var(--clr-fondo-secundario);
+   margin-left: 20px;
+   border-radius: 50%;
+   font-size: 1.3em;
+    color: var(--clr-fondo-primario);
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+#container .form_search button:hover{
+    background: var(--clr-fondo-primario);
+    color: var(--clr-fondo-secundario);
+}
+
+
