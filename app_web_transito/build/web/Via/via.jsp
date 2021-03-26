@@ -37,7 +37,6 @@
                         <th>Numero</th>
                         <th>Nivel</th>
                         <th>Acciones</th>
-
                     </tr>
                 </thead>
                 <tbody>
