@@ -65,7 +65,7 @@
                         <td><%= rs.getString("tipo_via") +" "+ rs.getString("numero")%></td>
                         <td>
                             <a class="action_button" href="editar.jsp?nombre=<%= rs.getString("nombre")%>&apellido=<%= rs.getString("apellido") %>&codigo=<%= rs.getString("codigo")%>&anos_exp=<%= rs.getString("anos_exp")%>&cod_sec=<%= rs.getString("codigo_sec")%>&via_act=<%= rs.getString("id")%>"><i class="fas fa-user-edit"></i></a>
-                            <a class="action_button" href="borrar.jsp?codigo=<%= rs.getString(2)%>"><i class="fas fa-trash-alt"></i></a>
+                            <a class="action_button" href="borrar.jsp?codigo=<%= rs.getString("codigo")%>"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                     <%

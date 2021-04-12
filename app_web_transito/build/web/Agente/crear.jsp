@@ -3,7 +3,6 @@
     Created on : 23/03/2021, 06:58:51 PM
     Author     : Usuario
 --%>
-<%@page import="javax.swing.JOptionPane"%>
 <%@page import="java.sql.*"%>
 <%@page import="com.mysql.jdbc.Driver"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
