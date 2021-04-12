@@ -20,7 +20,16 @@
     </head>
     <body>
         <%
+            Connection con = null;
+            Statement st = null;
+            ResultSet rs = null;
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/db_transito?user=brandon&password=bama159123456789");
+            st = con.createStatement();
+            
             String nombre = request.getParameter("nombre");
+            String apellido = request.getParameter("apellido");
             String codigo = request.getParameter("codigo");
             String años_exp = request.getParameter("anos_exp");
             String codigo_sec = request.getParameter("cod_sec");
@@ -38,6 +47,10 @@
                     <input type="text" name="nombre" id="nombre" value="<%= nombre %>" placeholder="ingrese su nombre" required="required">
                 </div>
                 <div class="form_camp">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" name="apellido" id="apellido" value="<%= apellido %>" placeholder="ingrese su apellido" required="required">
+                </div>
+                <div class="form_camp">
                     <label for="anos_exp">Años Experiencia</label>
                     <input type="text" name="anos_exp" value="<%= años_exp %>" id="anos_exp" placeholder="ingrese años experiencia" required="required">
                 </div>
@@ -47,7 +60,14 @@
                 </div>
                 <div class="form_camp">
                     <label for="via_act">Via Actual</label>
-                    <input type="text" name="via_act" value="<%= via_act %>" id="via_act" placeholder="ingrese via actual" required="required">
+                    <!--<input type="text" name="via_act" id="via_act" placeholder="ingrese via actual" required="required">-->
+                    <select name="via_act">
+                        <%
+                          rs = st.executeQuery("SELECT id, tipo_via, numero FROM tb_via");
+                          while(rs.next()){ %>
+                            <option value="<%= rs.getString("id") %>"><%= rs.getString("tipo_via")+" "+rs.getString("numero") %></option>
+                         <% } %>
+                    </select>
                 </div>
                 <a href="agente.jsp" class="button">Cancelar</a>
                 <button type="submit" name="enviar" class="button">Guardar</button>
@@ -57,13 +77,7 @@
             if (request.getParameter("enviar") != null) {
 
                 try {
-                    Connection con = null;
-                    Statement st = null;
-
-                    Class.forName("com.mysql.jdbc.Driver");
-                    con = DriverManager.getConnection("jdbc:mysql://localhost/db_transito?user=brandon&password=bama159123456789");
-                    st = con.createStatement();
-                    st.executeUpdate("UPDATE tb_agente SET nombre='"+nombre+"',anos_exp='"+años_exp+"',codigo_sec='"+codigo_sec+"',via_act='"+via_act+"' WHERE codigo='"+codigo+"';");
+                    st.executeUpdate("UPDATE tb_agente SET nombre='"+nombre+"',apellido='"+apellido+"',anos_exp='"+años_exp+"',codigo_sec='"+codigo_sec+"',via_act='"+via_act+"' WHERE codigo='"+codigo+"';");
                     request.getRequestDispatcher("agente.jsp").forward(request, response);
                     System.out.println("funcionaa");
                 } catch (Exception e) {

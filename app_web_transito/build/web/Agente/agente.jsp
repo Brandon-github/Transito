@@ -32,6 +32,7 @@
                 <thead>
                     <tr>
                         <th>Nombre</th>
+                        <th>Apellido</th>
                         <th>Codigo</th>
                         <th>Años de experiencia</th>
                         <th>Codigo secretaria</th>
@@ -47,18 +48,23 @@
                             con = DriverManager.getConnection("jdbc:mysql://localhost/db_transito?user=brandon&password=bama159123456789");
                             /* se obtiene la conexion a la BD */
                             st = con.createStatement();//iniializamos 
-                            rs = st.executeQuery("SELECT * FROM tb_agente");//definimos Query a ejecutar
+                            //rs = st.executeQuery("SELECT * FROM tb_agente");//definimos Query a ejecutar
+                            rs = st.executeQuery("SELECT a.nombre, a.apellido, a.codigo, a.anos_exp, a.codigo_sec, v.id, v.tipo_via, v.numero "
+                                    + "FROM tb_agente AS a "
+                                    + "INNER JOIN tb_via AS v ON (a.via_act = v.id)");//definimos Query a ejecutar
+
                             while (rs.next()) {//recorro los registros encontrados validando si son existentes
                     %>
                     <!-- mostramos los datos en la tabla -->
                     <tr>
-                        <th><%= rs.getString(1)%></th>
-                        <td><%= rs.getString(2)%></td>
-                        <td><%= rs.getString(3)%></td>
-                        <td><%= rs.getString(4)%></td>
-                        <td><%= rs.getString(5)%></td>
+                        <th><%= rs.getString("nombre")%></th>
+                        <td><%= rs.getString("apellido")%></td>
+                        <td><%= rs.getString("codigo")%></td>
+                        <td><%= rs.getString("anos_exp")%></td>
+                        <td><%= rs.getString("codigo_sec")%></td>
+                        <td><%= rs.getString("tipo_via") +" "+ rs.getString("numero")%></td>
                         <td>
-                            <a class="action_button" href="editar.jsp?nombre=<%= rs.getString(1)%>&codigo=<%= rs.getString(2)%>&anos_exp=<%= rs.getString(3)%>&cod_sec=<%= rs.getString(4)%>&via_act=<%= rs.getString(5)%>"><i class="fas fa-user-edit"></i></a>
+                            <a class="action_button" href="editar.jsp?nombre=<%= rs.getString("nombre")%>&apellido=<%= rs.getString("apellido") %>&codigo=<%= rs.getString("codigo")%>&anos_exp=<%= rs.getString("anos_exp")%>&cod_sec=<%= rs.getString("codigo_sec")%>&via_act=<%= rs.getString("id")%>"><i class="fas fa-user-edit"></i></a>
                             <a class="action_button" href="borrar.jsp?codigo=<%= rs.getString(2)%>"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
